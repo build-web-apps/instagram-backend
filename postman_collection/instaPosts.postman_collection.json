@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "instaPosts",
+		"_postman_id": "495900f5-7e67-014b-3c6c-bfe6c6c3a5de",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/posts",
+			"request": {
+				"url": "http://localhost:3000/posts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"this is my first post\"\n\t\n}"
+				},
+				"description": "Get all the Posts"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts",
+			"request": {
+				"url": "http://localhost:3000/posts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"am the description45565\",\n\t\"media\": \"jfkdfdsfjkgdsfjgdsjkfgskdjfgsdfjkgsdkfgsfjgsdjfgsd\"\n}"
+				},
+				"description": "Post for Posts, sample payload\n\n{\n\t\"userName\":\"jai\",\n\t\"content\": \"am the description45565\",\n\t\"media\": \"jfkdfdsfjkgdsfjgdsjkfgskdjfgsdfjkgsdkfgsfjgsdjfgsd\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts/jai",
+			"request": {
+				"url": "http://localhost:3000/posts/jai",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"this is my first post\"\n\t\n}"
+				},
+				"description": "Get Posts per username"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts/comment/5f6f441347b52ed979713ee3",
+			"request": {
+				"url": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"likes\": 20\n}"
+				},
+				"description": "Update comments data , payload\n\n{\n\t\"comment\": [\"arun\", \"jai\"]\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
+			"request": {
+				"url": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"likes\": 20\n}"
+				},
+				"description": "Update likes data, sample payload\n\n{\n\t\"likes\": 20\n}"
+			},
+			"response": []
+		}
+	]
+}
