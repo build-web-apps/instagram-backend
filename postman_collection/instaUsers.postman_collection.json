@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "instaUsers",
+		"_postman_id": "adaac461-815c-50d6-b9c5-cbcabb13ece4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/users/",
+			"request": {
+				"url": "http://localhost:3000/users/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"arun56\",\n\t\"password\": \"arun\",\n\t\"name\": \"ArunKumar\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/signup",
+			"request": {
+				"url": "http://localhost:3000/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\"\n}"
+				},
+				"description": "Payload \n\n{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\",\n\t\"name\": \"Jaivardhan Kumar\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/login",
+			"request": {
+				"url": "http://localhost:3000/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\"\n}"
+				},
+				"description": "Payload\n\n{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\"\n}"
+			},
+			"response": []
+		}
+	]
+}
