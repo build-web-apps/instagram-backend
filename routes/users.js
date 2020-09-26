@@ -50,9 +50,15 @@ router.delete("/:userName", async (req, res) => {
 
 //Signup user
 router.post("/signup", async (req, res) => {
+  if (!(req.body.userName && req.body.password && req.body.name)) {
+    res.status(400).send("Bad Request");
+    return;
+  }
+
   const newUser = new User({
     userName: req.body.userName,
     password: req.body.password,
+    name: req.body.name,
   });
 
   await User.findOne({ userName: newUser.userName })
@@ -101,7 +107,7 @@ router.post("/login", async (req, res) => {
             if (err) {
               console.log("Error is", err.message);
             } else if (result == true) {
-              res.send("User authenticated");
+              res.send({ status: "success", profile });
             } else {
               res.send("User Unauthorized Access");
             }
