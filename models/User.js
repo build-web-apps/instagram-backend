@@ -21,6 +21,8 @@ const InstaUserSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  followers: [],
+  following: [],
 });
 
 module.exports = mongoose.model("insta_user", InstaUserSchema);
