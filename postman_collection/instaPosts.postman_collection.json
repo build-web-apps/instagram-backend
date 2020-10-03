@@ -48,26 +48,6 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:3000/posts/jai",
-			"request": {
-				"url": "http://localhost:3000/posts/jai",
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"this is my first post\"\n\t\n}"
-				},
-				"description": "Get Posts per username"
-			},
-			"response": []
-		},
-		{
 			"name": "http://localhost:3000/posts/comment/5f6f441347b52ed979713ee3",
 			"request": {
 				"url": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
@@ -104,6 +84,86 @@
 					"raw": "{\n\t\"likes\": 20\n}"
 				},
 				"description": "Update likes data, sample payload\n\n{\n\t\"likes\": 20\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts/likes/5f6f443147b52ed979713ee4",
+			"request": {
+				"url": "http://localhost:3000/posts/likes/5f6f443147b52ed979713ee4",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/posts/5f6f443147b52ed979713ee4",
+			"request": {
+				"url": "localhost:3000/posts/5f6f443147b52ed979713ee4",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\",\n\t\"name\": \"Jaivardhan Kumar\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts/comment/5f6f443147b52ed979713ee4",
+			"request": {
+				"url": "http://localhost:3000/posts/comment/5f6f443147b52ed979713ee4",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comment\": [{\"userName\":\"arun\", \"comment\":\"hello jkai234!!\"}]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/posts/user/jai",
+			"request": {
+				"url": "localhost:3000/posts/user/jai",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\",\n\t\"name\": \"Jaivardhan Kumar\"\n}"
+				},
+				"description": ""
 			},
 			"response": []
 		}

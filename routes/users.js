@@ -85,6 +85,7 @@ router.post("/signup", async (req, res) => {
     })
     .catch((err) => {
       console.log("Error is", err.message);
+      res.json({ message: err.message });
     });
 });
 
@@ -117,6 +118,110 @@ router.post("/login", async (req, res) => {
     })
     .catch((err) => {
       console.log("Error is ", err.message);
+      res.json({ message: err.message });
+    });
+});
+
+//Update follower. following data
+router.patch("/follow/:userName", async (req, res) => {
+  if (!(req.body.loggedIn && req.params.userName)) {
+    res.status(400).send("Bad Request");
+    return;
+  }
+
+  await User.find({
+    userName: { $in: [req.body.loggedIn, req.params.userName] },
+  })
+    .then(async (profile) => {
+      if (profile.length !== 2) {
+        res.send("User not exist");
+      } else {
+        try {
+          if (!profile[0].following.includes(req.params.userName)) {
+            await User.update(
+              { userName: req.body.loggedIn },
+              {
+                $set: {
+                  following: [...profile[0].following, req.params.userName],
+                },
+              }
+            );
+          }
+          if (!profile[1].followers.includes(req.body.loggedIn)) {
+            await User.update(
+              { userName: req.params.userName },
+              {
+                $set: {
+                  followers: [...profile[1].followers, req.body.loggedIn],
+                },
+              }
+            );
+          }
+          res.send("updated user data");
+        } catch (err) {
+          res.json({ message: err });
+        }
+      }
+    })
+    .catch((err) => {
+      console.log("Error is ", err.message);
+      res.json({ message: err.message });
+    });
+});
+
+//Update follower, following data
+router.patch("/unfollow/:userName", async (req, res) => {
+  if (!(req.body.loggedIn && req.params.userName)) {
+    res.status(400).send("Bad Request");
+    return;
+  }
+
+  await User.find({
+    userName: { $in: [req.body.loggedIn, req.params.userName] },
+  })
+    .then(async (profile) => {
+      if (profile.length !== 2) {
+        res.send("User not exist");
+      } else {
+        try {
+          const followingUserindex = profile[0].following.indexOf(
+            req.params.userName
+          );
+          const followerUserindex = profile[1].followers.indexOf(
+            req.body.loggedIn
+          );
+          console.log("followingUserindex", followingUserindex);
+          if (followingUserindex !== -1) {
+            profile[0].following.splice(followingUserindex, 1);
+            await User.update(
+              { userName: req.body.loggedIn },
+              {
+                $set: {
+                  following: profile[0].following,
+                },
+              }
+            );
+          }
+          if (followerUserindex !== -1) {
+            profile[1].followers.splice(followerUserindex, 1);
+            await User.update(
+              { userName: req.params.userName },
+              {
+                $set: {
+                  followers: profile[1].followers,
+                },
+              }
+            );
+          }
+          res.send("updated user data");
+        } catch (err) {
+          res.json({ message: err });
+        }
+      }
+    })
+    .catch((err) => {
+      console.log("Error is ", err.message);
+      res.json({ message: err.message });
     });
 });
 

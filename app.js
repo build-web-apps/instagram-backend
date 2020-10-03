@@ -7,6 +7,7 @@ require("dotenv/config");
 //Import Routes
 const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
+const homeRoute = require("./routes/home");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/users", usersRoute);
 app.use("/posts", postsRoute);
+app.use("/home", homeRoute);
 
 //Routes
 app.get("/", (req, res) => {
