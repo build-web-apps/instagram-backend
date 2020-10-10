@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 router.get("/:userName", async (req, res) => {
   try {
     const findUser = await User.find({ userName: req.params.userName });
-    res.json(findUser);
+    findUser.length ? res.json(findUser) : res.status(404).send('User not found');
   } catch (err) {
     res.json({ message: err });
   }
