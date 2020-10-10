@@ -1,171 +1,196 @@
 {
-	"variables": [],
 	"info": {
-		"name": "instaPosts",
 		"_postman_id": "495900f5-7e67-014b-3c6c-bfe6c6c3a5de",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"name": "instaPosts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "http://localhost:3000/posts",
 			"request": {
-				"url": "http://localhost:3000/posts",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"this is my first post\"\n\t\n}"
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
 				},
 				"description": "Get all the Posts"
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:3000/posts",
+			"name": "localhost:3000/posts/5f6f443147b52ed979713ee4",
 			"request": {
-				"url": "http://localhost:3000/posts",
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"am the description45565\",\n\t\"media\": \"jfkdfdsfjkgdsfjgdsjkfgskdjfgsdfjkgsdkfgsfjgsdjfgsd\"\n}"
-				},
-				"description": "Post for Posts, sample payload\n\n{\n\t\"userName\":\"jai\",\n\t\"content\": \"am the description45565\",\n\t\"media\": \"jfkdfdsfjkgdsfjgdsjkfgskdjfgsdfjkgsdkfgsfjgsdjfgsd\"\n}"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3000/posts/comment/5f6f441347b52ed979713ee3",
-			"request": {
-				"url": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"likes\": 20\n}"
-				},
-				"description": "Update comments data , payload\n\n{\n\t\"comment\": [\"arun\", \"jai\"]\n}"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
-			"request": {
-				"url": "http://localhost:3000/posts/likes/5f6f441347b52ed979713ee3",
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"likes\": 20\n}"
-				},
-				"description": "Update likes data, sample payload\n\n{\n\t\"likes\": 20\n}"
+				"url": {
+					"raw": "localhost:3000/posts/5f6f443147b52ed979713ee4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"5f6f443147b52ed979713ee4"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:3000/posts/likes/5f6f443147b52ed979713ee4",
 			"request": {
-				"url": "http://localhost:3000/posts/likes/5f6f443147b52ed979713ee4",
 				"method": "PATCH",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\t\"likes\": 20\n}"
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "localhost:3000/posts/5f6f443147b52ed979713ee4",
-			"request": {
-				"url": "localhost:3000/posts/5f6f443147b52ed979713ee4",
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\",\n\t\"name\": \"Jaivardhan Kumar\"\n}"
-				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3000/posts/likes/5f6f443147b52ed979713ee4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"likes",
+						"5f6f443147b52ed979713ee4"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:3000/posts/comment/5f6f443147b52ed979713ee4",
 			"request": {
-				"url": "http://localhost:3000/posts/comment/5f6f443147b52ed979713ee4",
 				"method": "PATCH",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"comment\": [{\"userName\":\"arun\", \"comment\":\"hello jkai234!!\"}]\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3000/posts/comment/5f6f443147b52ed979713ee4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"comment",
+						"5f6f443147b52ed979713ee4"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "localhost:3000/posts/user/jai",
 			"request": {
-				"url": "localhost:3000/posts/user/jai",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/posts/user/jai",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"user",
+						"jai"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/home/test2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/home/test2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"home",
+						"test2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\",\n\t\"name\": \"Jaivardhan Kumar\"\n}"
+					"raw": "{\n\t\"userName\":\"jai\",\n\t\"content\": \"am the description45563453565\",\n\t\"media\": \"jfkdfdsfjkgdsfjgdsjkfgskdjfgsdfjkgsdkfgsfjgsdjfgsd\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

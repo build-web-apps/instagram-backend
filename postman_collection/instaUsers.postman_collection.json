@@ -1,47 +1,35 @@
 {
-	"variables": [],
 	"info": {
-		"name": "instaUsers",
 		"_postman_id": "adaac461-815c-50d6-b9c5-cbcabb13ece4",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"name": "instaUsers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:3000/users/",
-			"request": {
-				"url": "http://localhost:3000/users/arun",
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"arun56\",\n\t\"password\": \"arun\",\n\t\"name\": \"ArunKumar\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
 			"name": "http://localhost:3000/users/signup",
 			"request": {
-				"url": "http://localhost:3000/users/login",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\"\n}"
+					"raw": "{\n\t\"userName\":\"test1\",\n\t\"password\": \"test1\",\n\t\"name\": \"test1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"signup"
+					]
 				},
 				"description": "Payload \n\n{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\",\n\t\"name\": \"Jaivardhan Kumar\"\n}"
 			},
@@ -50,82 +38,118 @@
 		{
 			"name": "http://localhost:3000/users/login",
 			"request": {
-				"url": "http://localhost:3000/users/login",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\"\n}"
 				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				},
 				"description": "Payload\n\n{\n\t\"userName\":\"jai\",\n\t\"password\": \"jaivardhan\"\n}"
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3000/users/follow/jai",
-			"request": {
-				"url": "http://localhost:3000/users/follow/jai",
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"loggedIn\":\"arun\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3000/users/unfollow/jai",
-			"request": {
-				"url": "http://localhost:3000/users/unfollow/jai",
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"loggedIn\":\"arun\"\n}"
-				},
-				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "http://localhost:3000/users/",
 			"request": {
-				"url": "http://localhost:3000/users/arun",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/arun",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"arun"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/follow/jai",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"userName\":\"arun56\",\n\t\"password\": \"arun\",\n\t\"name\": \"ArunKumar\"\n}"
+					"raw": "{\n\t\"loggedIn\":\"arun\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "http://localhost:3000/users/follow/jai",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"follow",
+						"jai"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/unfollow/jai",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"loggedIn\":\"arun\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/unfollow/jai",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"unfollow",
+						"jai"
+					]
+				}
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
