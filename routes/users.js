@@ -108,7 +108,7 @@ router.post("/login", async (req, res) => {
             if (err) {
               console.log("Error is", err.message);
             } else if (result == true) {
-              res.send({ status: "success", profile });
+              res.status(200).send(profile);
             } else {
               res.send("User Unauthorized Access");
             }
@@ -136,28 +136,45 @@ router.patch("/follow/:userName", async (req, res) => {
       if (profile.length !== 2) {
         res.send("User not exist");
       } else {
+        const followingUserindex = profile
+          .find((p) => p.userName === req.body.loggedIn)
+          .following.indexOf(req.params.userName);
+        const followerUserindex = profile
+          .find((p) => p.userName === req.params.userName)
+          .followers.indexOf(req.body.loggedIn);
+
         try {
-          if (!profile[0].following.includes(req.params.userName)) {
+          if (followingUserindex === -1 && followerUserindex === -1) {
+            const followingUserData = profile.find(
+              (p) => p.userName === req.body.loggedIn
+            );
             await User.update(
               { userName: req.body.loggedIn },
               {
                 $set: {
-                  following: [...profile[0].following, req.params.userName],
+                  following: [
+                    ...followingUserData.following,
+                    req.params.userName,
+                  ],
                 },
               }
             );
-          }
-          if (!profile[1].followers.includes(req.body.loggedIn)) {
+
+            const followerUserData = profile.find(
+              (p) => p.userName === req.params.userName
+            );
             await User.update(
               { userName: req.params.userName },
               {
                 $set: {
-                  followers: [...profile[1].followers, req.body.loggedIn],
+                  followers: [...followerUserData.followers, req.body.loggedIn],
                 },
               }
             );
+            res.status(200).send("updated user data");
+          } else {
+            res.status(400).send("Unable to update");
           }
-          res.send("updated user data");
         } catch (err) {
           res.json({ message: err });
         }
@@ -183,37 +200,43 @@ router.patch("/unfollow/:userName", async (req, res) => {
       if (profile.length !== 2) {
         res.send("User not exist");
       } else {
+        const followingUserindex = profile
+          .find((p) => p.userName === req.body.loggedIn)
+          .following.indexOf(req.params.userName);
+        const followerUserindex = profile
+          .find((p) => p.userName === req.params.userName)
+          .followers.indexOf(req.body.loggedIn);
         try {
-          const followingUserindex = profile[0].following.indexOf(
-            req.params.userName
-          );
-          const followerUserindex = profile[1].followers.indexOf(
-            req.body.loggedIn
-          );
-          console.log("followingUserindex", followingUserindex);
-          if (followingUserindex !== -1) {
-            profile[0].following.splice(followingUserindex, 1);
+          if (followingUserindex !== -1 && followerUserindex !== -1) {
+            const followingUserData = profile.find(
+              (p) => p.userName === req.body.loggedIn
+            );
+            followingUserData.following.splice(followingUserindex, 1);
             await User.update(
               { userName: req.body.loggedIn },
               {
                 $set: {
-                  following: profile[0].following,
+                  following: followingUserData.following,
                 },
               }
             );
-          }
-          if (followerUserindex !== -1) {
-            profile[1].followers.splice(followerUserindex, 1);
+
+            const followerUserData = profile.find(
+              (p) => p.userName === req.params.userName
+            );
+            followerUserData.followers.splice(followerUserindex, 1);
             await User.update(
               { userName: req.params.userName },
               {
                 $set: {
-                  followers: profile[1].followers,
+                  followers: followerUserData.followers,
                 },
               }
             );
+            res.status(200).send("updated user data");
+          } else {
+            res.status(400).send("Unable to update");
           }
-          res.send("updated user data");
         } catch (err) {
           res.json({ message: err });
         }
