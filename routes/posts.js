@@ -34,6 +34,7 @@ router.post("/", async (req, res) => {
     userName: req.body.userName,
     content: req.body.content,
     media: req.body.media,
+    likes:0
   });
 
   await User.findOne({ userName: post.userName })
