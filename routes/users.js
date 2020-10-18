@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const auth = require("../utils/auth");
 const router = express.Router();
 
 const saltRadius = 10;
@@ -19,7 +20,9 @@ router.get("/", async (req, res) => {
 router.get("/:userName", async (req, res) => {
   try {
     const findUser = await User.find({ userName: req.params.userName });
-    findUser.length ? res.json(findUser) : res.status(404).send('User not found');
+    findUser.length
+      ? res.json(findUser)
+      : res.status(404).send("User not found");
   } catch (err) {
     res.json({ message: err });
   }
@@ -72,7 +75,8 @@ router.post("/signup", async (req, res) => {
             await newUser
               .save()
               .then(() => {
-                res.status(200).send(newUser);
+                const token = auth.newToken(newUser);
+                res.status(200).send(token);
               })
               .catch((err) => {
                 console.log("Error is ", err.message);
@@ -108,7 +112,8 @@ router.post("/login", async (req, res) => {
             if (err) {
               console.log("Error is", err.message);
             } else if (result == true) {
-              res.status(200).send(profile);
+              const token = auth.newToken(profile);
+              res.status(200).send(token);
             } else {
               res.send("User Unauthorized Access");
             }
