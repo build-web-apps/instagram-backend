@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: instagram-backend
+  annotations:
+    github.com/project-slug: build-web-apps/instagram-backend
+spec:
+  type: other
+  lifecycle: unknown
+  owner: user:default/invinciblejai
